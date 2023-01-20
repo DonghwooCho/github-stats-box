@@ -8,7 +8,7 @@ const numeral = require('numeral');
 
 const gistId = process.env.GIST_ID;
 const githubToken = process.env.GH_TOKEN;
-const countAllCommits = process.env.ALL_COMMITS.toString() === 'true';
+const countAllCommits = true;
 const kFormat = process.env.K_FORMAT.toString() === 'true';
 
 async function main() {
@@ -91,7 +91,7 @@ async function updateGist(stats) {
     return request('PATCH /gists/:gist_id', {
         files: {
             [filename]: {
-                filename: `${stats.name}'s GitHub Stats`,
+                filename: `GitHub Stats`,
                 content: gistContent,
             },
         },
